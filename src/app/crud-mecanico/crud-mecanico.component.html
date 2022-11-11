@@ -4,8 +4,9 @@
         <!--TITULO------------------------>
         <input class="cajas" type="text" placeholder="Nombre" required maxlength="30" formControlName="nombres">
         <input class="cajas" type="text" placeholder="Apellido" required maxlength="30" formControlName="apellidos">
-        <input class="cajas" type="email" placeholder="Email" required maxlength="30" formControlName="email">
         <input class="cajas" type="text" placeholder="telefono" required maxlength="30" formControlName="telefono">
+        <input class="cajas" type="text" placeholder="Direccion" required maxlength="30" formControlName="direccion">
+        <input class="cajas" type="text" placeholder="nivelestudio" required maxlength="30" formControlName="nivelestudio">
                 
         <!--BOTON-DE-REGISTRARSE-------------------------->
         <button (click)="saveMecanico()" mat-button color="primary">Agregar</button>
@@ -39,9 +40,9 @@
                 </ng-container>
             
                 Weight Column
-                <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef> Email </th>
-                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                <ng-container matColumnDef="direccion">
+                <th mat-header-cell *matHeaderCellDef> Dirección </th>
+                <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
                 </ng-container>
             
                 <!-- Symbol Column -->
@@ -49,12 +50,13 @@
                 <th mat-header-cell *matHeaderCellDef> Telefono </th>
                 <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
                 </ng-container>
-                <!-- <ng-container matColumnDef="fechaNacimiento">
-                <th mat-header-cell *matHeaderCellDef> FechaNacimiento </th>
-                <td mat-cell *matCellDef="let element"> {{element.fechaNacimiento}} </td>
+
+                <ng-container matColumnDef="nivelestudio">
+                <th mat-header-cell *matHeaderCellDef> Nivel de estudios </th>
+                <td mat-cell *matCellDef="let element"> {{element.nivelestudio}} </td>
                 </ng-container>
                 
-                <ng-container matColumnDef="tipoUsuario">
+                <!-- <ng-container matColumnDef="tipoUsuario">
                 <th mat-header-cell *matHeaderCellDef> TipoUsuario </th>
                 <td mat-cell *matCellDef="let element"> {{element.tipoUsuario}} </td>
                 </ng-container> -->

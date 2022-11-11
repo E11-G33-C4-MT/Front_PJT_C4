@@ -10,7 +10,7 @@ import { RequestBackendService } from '../request-backend.service';
 })
 export class CrudMecanicoComponent implements OnInit {
 
-  displayedColumns: string[] = ['nombres', 'apellidos', 'telefono'];
+  displayedColumns: string[] = ['nombres', 'apellidos', 'telefono', 'direccion', 'nivelestudio'];
   dataSource = [];
   formMecanico: FormGroup = new FormGroup({});
 
@@ -22,9 +22,9 @@ export class CrudMecanicoComponent implements OnInit {
       this.formMecanico = this.fb.group({
       nombres: [''], 
       apellidos: [''], 
-      // email: [''], 
       telefono: [''], 
-      // fechaNacimiento: [''], 
+      direccion: [''], 
+      nivelestudio: [''], 
       // tipoUsuario: [''], 
     });
     }
