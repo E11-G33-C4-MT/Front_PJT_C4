@@ -28,7 +28,6 @@ import {MatListModule} from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
 //modulo  Http
 import { HttpClientModule } from '@angular/common/http';
-import { MecanicoComponent } from './mecanico/mecanico.component';
 
 
 @NgModule({
@@ -44,7 +43,6 @@ import { MecanicoComponent } from './mecanico/mecanico.component';
     CrudMecanicoComponent,
     CrudMantenimientosComponent,
     RegistroComponent,
-    MecanicoComponent
   ],
   imports: [
     BrowserModule,

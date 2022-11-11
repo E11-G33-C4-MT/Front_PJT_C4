@@ -13,15 +13,8 @@ export class UsuarioComponent implements OnInit {
 
   //displayedColumns: string[] = ['nombre', 'apellido', 'email', 'telefono', 'fechaNacimiento', 'tipoUsuario'];
   displayedColumns: string[] = ['nombres', 'apellidos', 'telefono'];
-  
   dataSource = [];
-
-  name = new FormControl('');
-
-  //datos para consultas en DB
-  User: any = [];
-
-  formUser: FormGroup = new FormGroup({});
+  formUser: FormGroup = new FormGroup({}); //datos para consultas en DB
   
   constructor(
     private servicioBackend: RequestBackendService,
@@ -45,17 +38,20 @@ export class UsuarioComponent implements OnInit {
   ///Metodo para obtener los usarios
   getUser(): void{
     console.log("funcion para obtener usuarios");
-    this.servicioBackend.getData('duenos').subscribe(
-      (data) => {
+    this.servicioBackend.getData('duenos').subscribe({
+      next: (data) => {
         console.log("data:",data);
         this.dataSource = data;
       },
-      (error) => {
+      error: (error) => {
         console.log("entra a error");
         console.log(error);
         this.dataSource =[]
-      }
-    )
+      },
+      complete: () => {
+        console.log('complete')
+      },
+    })
   }
   /// Metodo para guardar usuarios 
   saveUser(): void {
