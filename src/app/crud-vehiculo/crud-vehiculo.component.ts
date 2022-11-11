@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestBackendService } from './../request-backend.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 export interface PeriodicElement {
   name: string;
@@ -28,14 +30,62 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class CrudVehiculoComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['tipo', 'marca', 'modelo'];
+  dataSource = [];
+  formVehiculo: FormGroup = new FormGroup({});
 
-  constructor() { }
+  constructor(
+        private servicioBackend: RequestBackendService,
+        private fb: FormBuilder ) {
+
+      this.getVehiculo();
+
+      this.formVehiculo = this.fb.group({
+        placa: [''],
+        tipo: [''],
+        marca: [''],
+        modelo: [''],
+        duenoId: [''],
+      });
+  }
+  
 
   
-  ngOnInit(): void {
-    
+  ngOnInit(): void {  }
+
+  getVehiculo(): void{
+    this.servicioBackend.getData('vehiculos').subscribe({
+      next: (data) => {
+        console.log(data);
+        this.dataSource = data;
+        },
+      error: (error) => {
+        console.log(error);
+        this.dataSource =[]
+      },
+      complete: () => {
+          console.log('complete')
+        },
+      })
   }
 
+  //Funcion para agregar vehculo
+ saveVehiculo(): void {
+  console.log("Funcion para agregar vehculo");
+  const datosVehiculo = this.formVehiculo.getRawValue();
+  console.log(datosVehiculo);
+  
+  this.servicioBackend.postData('vehiculos', JSON.stringify(datosVehiculo)).subscribe({
+    next: (data) => {
+      console.log(data);
+      this.getVehiculo();
+      },
+    error: (error) => {
+      console.log(error)
+    },
+    complete: () => {
+        console.log('complete')
+      },
+    });
+  }
 }

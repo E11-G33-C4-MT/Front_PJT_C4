@@ -16,6 +16,7 @@ import { LayoutComponent } from './layout/layout.component';
 const routes: Routes = [
   {path: '', component: InicioSesionComponent},
   {path: 'registro', component: RegistroComponent },
+  {path: 'layout', component: LayoutComponent },
   {path: 'usuario', component: UsuarioComponent },
   {path: 'vehiculo', component: CrudVehiculoComponent},
   {path: 'mecanico', component: CrudMecanicoComponent },

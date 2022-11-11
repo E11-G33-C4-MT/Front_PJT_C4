@@ -12,6 +12,7 @@ import { RegistroComponent } from './registro/registro.component';
 import {FormsModule} from "@angular/forms";
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+// importes de material
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
@@ -23,6 +24,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
+//formulario reactivo
+import { ReactiveFormsModule } from '@angular/forms';
+//modulo  Http
+import { HttpClientModule } from '@angular/common/http';
+import { MecanicoComponent } from './mecanico/mecanico.component';
 
 
 @NgModule({
@@ -37,7 +43,8 @@ import {MatListModule} from '@angular/material/list';
     ContentComponent,
     CrudMecanicoComponent,
     CrudMantenimientosComponent,
-    RegistroComponent
+    RegistroComponent,
+    MecanicoComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,10 @@ import {MatListModule} from '@angular/material/list';
     MatToolbarModule,
     MatDividerModule,
     MatTableModule,
-    MatListModule
+    MatListModule,
+    ReactiveFormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
